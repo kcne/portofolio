@@ -10,6 +10,7 @@ import { cn } from '@/lib/utils'
 import { NextjsOriginalWordmark, ReactOriginal, TypescriptOriginal, LinkedinOriginal, GithubOriginal, GraphqlPlain, TailwindcssPlain, GitOriginal, FigmaOriginal, JiraOriginalWordmark,MarkdownOriginal, MysqlOriginalWordmark, NodejsOriginal, PostgresqlPlainWordmark, VscodeOriginal, PythonOriginalWordmark } from 'devicons-react';
 import Link from 'next/link'
 import { Button, buttonVariants } from '../ui/button'
+import BlogPosts from '../latest-posts'
 
 const navigation = [
   { name: 'Product', href: '#' },
@@ -112,7 +113,7 @@ export default function Example() {
           />
         </div>
         <div className="mx-auto max-w-5xl pt-10 md:pt-32 pb-16">
-            <div className='w-full grid grid-cols-1 grid-rows-2 md:grid-cols-[2fr_1fr] md:grid-rows-1 gap-x-6'>
+            <div className='w-full grid grid-cols-1 grid-rows-2 md:grid-cols-[2fr_1fr] md:grid-rows-1 gap-x-5'>
                 <div className='md:order-1 order-2'>
                     {/* <h1 className='text-4xl font-semibold leading-tight tracking-tighter'>Frontend Developer</h1> */}
                     <div className='flex justify-start items-center gap-4'>
@@ -177,6 +178,7 @@ export default function Example() {
                 </li>
             </ol>
         </div>
+        <BlogPosts/>
         <div
           className="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]"
           aria-hidden="true"
