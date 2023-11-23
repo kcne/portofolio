@@ -41,7 +41,7 @@ function Navbar({className}: Props) {
             </div>
             <div className="hidden lg:flex lg:gap-x-12">
               {navigation.map((item) => (
-                <Link key={item.name} href={item.href} className="text-md  leading-6 text-zinc-900">
+                <Link key={item.name} href={item.href} className="text-[15px] leading-6 text-zinc-900">
                   {item.name}
                 </Link>
               ))}

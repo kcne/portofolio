@@ -12,6 +12,7 @@ import Link from 'next/link'
 import { Button, buttonVariants } from '../../ui/button'
 import BlogPosts from '../../shared/latest-posts'
 import Navbar from '../../shared/navbar'
+import Footer from '@/components/shared/footer'
 
 const navigation = [
   { name: 'Product', href: '#' },
@@ -58,8 +59,6 @@ export default function Example() {
                     <p className='text-6xl leading-tight tracking-tighter'>Emin Kocan</p>
                     <p className='text-zinc-600 mt-5'>As a Frontend Engineer at PITON Technology, I design and develop robust, user-friendly web applications for various clients and domains, using cutting-edge technologies such as Nextjs, Material-UI, Sanity, GraphQL, and Tailwind CSS. I work with a diverse and talented team of engineers, designers, and project managers, contributing to the delivery of high-quality products and services that meet the needs and expectations of our customers and stakeholders.</p>
                     <div className='mt-10 flex justify-center gap-6 item-center flex-wrap'>
-
-                    {/* TypescriptOriginal, GraphqlPlain, TailwindcssPlain, GitOriginal, FigmaOriginal, JiraOriginalWordmark,MarkdownOriginal, MysqlOriginalWordmark, NodejsOriginal, PostgresqlPlainWordmark, VscodeOriginal, PythonOriginalWordmark } from 'devicons-react'; */}
                     <NextjsOriginalWordmark size={45}/>
                     <ReactOriginal size={45} />
                     <GraphqlPlain size={45} />
