@@ -2,6 +2,13 @@
 
 import { groq } from "next-sanity";
 
+
+// Get the latest post
+export const latestPostQuery = groq`*[_type == "post" && defined(slug.current)] | order(publishedAt desc)[0]{
+_id, title, slug, publishedAt,mainImage,category,body
+}`;
+
+
 // Get all posts
 export const postsQuery = groq`*[_type == "post" && defined(slug.current)]{
     _id,
@@ -36,29 +43,3 @@ export const postPathsQuery = groq`*[_type == "post" && defined(slug.current)][]
     "params": { "slug": slug.current }
   }`;
 
-
-export const getAllJobPosts = groq`*[_type == "jobPost" && defined(slug.current)]{
-    _id,
-    title,
-    slug,
-    location,
-    publishedAt
-}`;
-
-export const getJobPostBySlug = groq`*[_type == "jobPost" && slug.current == $slug][0]{
-    title,
-    location,
-    salary,
-    slug,
-    category->{
-      _id,
-      title,
-    },
-    body,
-    author->{
-        _id,
-        name,
-        "image_url": image.asset->url
-    },
-    publishedAt
-}`;

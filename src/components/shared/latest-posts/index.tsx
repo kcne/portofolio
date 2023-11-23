@@ -1,23 +1,24 @@
+'use client'
 import React from 'react'
 import useSWR from 'swr';
-import { client, fetcher } from '../../../sanity/lib/client';
-import { postsQuery } from '../../../sanity/lib/queries';
-import { Post } from '../../../sanity/lib/types/post';
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '../ui/card';
+import { client, fetcher } from '../../../../sanity/lib/client';
+import { postsQuery } from '../../../../sanity/lib/queries';
+import { Post } from '../../../../sanity/lib/types/post';
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '../../ui/card';
 import imageUrlBuilder from "@sanity/image-url";
 import Image from 'next/image'
-import { Button } from '../ui/button';
+import { Button } from '../../ui/button';
+import Link from 'next/link';
 
 const builder = imageUrlBuilder(client);
 
 interface Props {}
 
-function BlogPosts({}: Props) {
+function LatestPosts({}: Props) {
     const { data:posts, error } = useSWR<Post[]>(postsQuery,fetcher);
     console.log(posts,'posts');
   return (
     <>
-    <h2 className='text-zinc-800 leading-snug text-4xl text-center underline mb-5 font-semibold mt-10'>Blog</h2>
     <div className='mt-10 flex max-w-5xl gap-5 justify-center mx-auto flex-wrap'>
         {
             posts?.map(post =>
@@ -36,7 +37,9 @@ function BlogPosts({}: Props) {
                     <CardDescription className='mt-2'>{post?.description}</CardDescription>
                     </CardContent>
                     <CardFooter>
-                        <Button variant="outline" className='absolute bottom-3'>Read More</Button>
+                        <Link href={`/blog/${post && post?.slug?.current}`}>
+                            <Button variant="outline" className='absolute bottom-3'>Read More</Button>
+                        </Link>
                     </CardFooter>
                     </Card>
                 )
@@ -46,7 +49,7 @@ function BlogPosts({}: Props) {
   )
 }
 
-export default BlogPosts
+export default LatestPosts
 
 
 

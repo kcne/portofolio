@@ -1,11 +1,14 @@
+import { PortableTextBlock } from "sanity"
+
 export interface Post{
     _id:string,
     author:string | null,
     description:string | null,
     mainImage: Image,
-    publishedAt: String | null,
+    publishedAt: string,
     slug:Slug | null,
     title:string | null,
+    body: PortableTextBlock | null
 }
 
 export interface Slug{
