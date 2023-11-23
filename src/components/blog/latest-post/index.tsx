@@ -28,7 +28,7 @@ export default function LastPost({ post }: { post?: SanityDocument }) {
             />
         </div>
       ) : null}
-      <div className={`max-w-5xl mx-auto ${urbanist.className} pt-10`}>
+      <div className={`max-w-5xl px-5 lg:mx-auto ${urbanist.className} pt-10`}>
 
             <Badge variant="outline">
                 {post?.category??"Latest Post"}
