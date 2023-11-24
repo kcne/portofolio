@@ -12,8 +12,8 @@ interface Props extends React.HTMLAttributes<HTMLDivElement> {
 
 const navigation = [
     { name: 'Blog', href: '/blog' },
-    { name: 'Projects', href: '#' },
-    { name: 'Stack', href: '#' },
+    { name: 'Projects', href: '/projects' },
+    { name: 'Stack', href: '/stack' },
     { name: 'Contact', href: '#' },
   ]
 

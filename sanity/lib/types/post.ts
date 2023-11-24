@@ -6,7 +6,7 @@ export interface Post{
     description:string | null,
     mainImage: Image,
     publishedAt: string,
-    slug:Slug | null,
+    slug:Slug,
     title:string | null,
     body: PortableTextBlock | null
 }

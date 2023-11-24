@@ -7,7 +7,7 @@ import { Post } from '../../../../sanity/lib/types/post';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '../../ui/card';
 import imageUrlBuilder from "@sanity/image-url";
 import Image from 'next/image'
-import { Button } from '../../ui/button';
+import { Button, buttonVariants } from '../../ui/button';
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
 
@@ -17,35 +17,45 @@ interface Props {}
 
 function LatestPostsHorizontal({}: Props) {
     const { data:posts, error } = useSWR<Post[]>(postsQuery,fetcher);
-    console.log(posts,'posts');
   return (
     <>
     <h2 className='text-zinc-800 leading-snug text-4xl text-center underline mb-5 font-semibold mt-10'>Latest Posts</h2>
-    <div className='mt-10 flex flex-col max-w-5xl gap-5 justify-center mx-5 lg:mx-auto'>
+    <div className='mt-10 flex flex-col max-w-4xl gap-5 justify-center mx-5 lg:mx-auto'>
         {
-            posts?.map(post =>
-                    <Card key={post._id} className={cn('w-full md:h-[200px] bg-zinc-100/50 relative overflow-hidden')}>
-
-                    <CardContent className='flex md:flex-row flex-col justify-start max-h-full gap-5 p-5'>
-
+           posts?.map( post => 
+            (
+                <Card key={post._id} className=' backdrop-blur-md bg-zinc-50 h-[400px] sm:h-[200px] md:h-[150px]'>
+                    <CardContent className="grid grid-rows-2 gap-y-5 grid-cols-1 sm:grid-rows-1 sm:grid-cols-[1fr_1fr] md:grid-cols-[1fr_3fr]  h-full p-5">
+                        <div className='h-full w-full  flex items-center justify-center sm:border-r md:pr-4 border-zinc-200'>
                             <Image
-                            className="object-center object-cover md:h-[170px] md:w-[300px] rounded-md mx-auto md:mx-0"
-                            src={builder.image(post.mainImage).width(600).height(300).url()}
+                            className="object-cover obect-center overflow-none max-w-full max-h-full rounded-md mx-auto"
+                            src={builder.image(post.mainImage).width(500).format('png').url()}
                             alt={post?.mainImage?.alt}
-                            height={200}
-                            width={400}
-                            />
-
-                        <div>
-                        <CardTitle className='text-lg leading-tight hover:underline hover:cursor-pointer'>{post.title}</CardTitle>
-                        <CardDescription className='mt-2 mb-10 md:mb-0'>{post?.description}</CardDescription>
-                        <Link href={`/blog/${post && post?.slug?.current}`}>
-                                <Button variant="outline" className='absolute bottom-3'>Read More</Button>
-                        </Link>
+                            width={300}
+                            height={300}
+                        />
                         </div>
+                        <div className='ml-4'>
+                          <Link href={`/blog/${post?.slug.current}`}>
+                            <CardTitle className='text-zinc-600 font-semibold text-lg leading-tight hover:underline hover:cursor'>
+                                {post.title}
+                            </CardTitle>
+                          </Link>
+                            <CardDescription className='text-zinc-500 mt-1.5 text-sm leading-tight'>
+                                {
+                                    post.description
+                                }
+                            </CardDescription>
+                            <Link href={`/blog/${post?.slug.current}`} className={cn(buttonVariants({variant:'outline', size:'sm'}),'mt-4 md:mt-1.5')}>
+                              Read More
+                            </Link>
+                        </div>
+
+
                     </CardContent>
-                    </Card>
-                )
+                </Card>
+            )
+        )
         }
     </div>
     </>

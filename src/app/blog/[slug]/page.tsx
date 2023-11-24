@@ -9,6 +9,7 @@ import { Post } from '../../../../sanity/lib/types/post';
 import LatestPosts from '@/components/shared/latest-posts';
 import LatestPostsHorizontal from '@/components/blog/latest-posts-horizontal';
 import { Urbanist } from 'next/font/google';
+import Footer from '@/components/shared/footer';
 
 
 interface Props {
@@ -21,8 +22,6 @@ async function BlogPosts({params}: Props) {
     const {slug} = params;
 
     const post:Post = await fetcher(postQuery, {slug})
-
-    console.log(post);
 
 
     const builder = imageUrlBuilder(client);
@@ -56,7 +55,7 @@ async function BlogPosts({params}: Props) {
             <div className='w-full relative mb-10'>
                 <div className='fixed top-0 pattern-isometric pattern-zinc-400 pattern-bg-zinc-50 pattern-size-10 pattern-opacity-80 w-full h-full '>
                 </div>
-            <article className={`p-5 my-10 px-10 pt-15 mx-auto z-10 shadow-[0_8px_30px_rgb(0,0,0,0.12)] border-zinc-400 border  prose prose-md md:prose-lg max-w-6xl pb-10 pt-10 bg-white/60 backdrop-blur-sm backdrop-brightness-120 text-zinc-950 relative rounded-xl`}>
+            <article className={`p-5 my-10 px-10 pt-15 mx-auto z-10 shadow-[0_8px_30px_rgb(0,0,0,0.12)] border-zinc-400 border  prose prose-md md:prose-lg max-w-6xl pb-10 pt-10 bg-white/60 backdrop-blur-md backdrop-brightness-120 text-zinc-950 relative rounded-xl`}>
                 {post?.body ? <PortableText value={post.body} /> : null}
             </article>
 
@@ -67,6 +66,7 @@ async function BlogPosts({params}: Props) {
             </div>
 
         </div>
+        <Footer/>
     </div>
   )
 }

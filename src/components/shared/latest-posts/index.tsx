@@ -16,7 +16,6 @@ interface Props {}
 
 function LatestPosts({}: Props) {
     const { data:posts, error } = useSWR<Post[]>(postsQuery,fetcher);
-    console.log(posts,'posts');
   return (
     <>
     <div className='mt-10 flex max-w-5xl gap-5 justify-center mx-auto flex-wrap'>

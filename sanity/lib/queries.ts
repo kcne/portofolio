@@ -43,3 +43,10 @@ export const postPathsQuery = groq`*[_type == "post" && defined(slug.current)][]
     "params": { "slug": slug.current }
   }`;
 
+
+export const getAllTechnologies = groq `*[_type == "technology"][]{
+    _id,
+    title,
+    description,
+    image
+}`
