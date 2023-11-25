@@ -14,7 +14,7 @@ const navigation = [
     { name: 'Blog', href: '/blog' },
     { name: 'Projects', href: '/projects' },
     { name: 'Stack', href: '/stack' },
-    { name: 'Contact', href: '#' },
+    { name: 'Contact', href: '/contact' },
   ]
 
 function Navbar({className}: Props) {

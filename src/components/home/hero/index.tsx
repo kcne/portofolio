@@ -12,17 +12,9 @@ import Link from 'next/link'
 import { Button, buttonVariants } from '../../ui/button'
 import BlogPosts from '../../shared/latest-posts'
 import Navbar from '../../shared/navbar'
-import Footer from '@/components/shared/footer'
 
-const navigation = [
-  { name: 'Product', href: '#' },
-  { name: 'Features', href: '#' },
-  { name: 'Marketplace', href: '#' },
-  { name: 'Company', href: '#' },
-]
 
 export default function Example() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   return (
     <div className="bg-white">
