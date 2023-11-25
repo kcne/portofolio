@@ -12,15 +12,8 @@ import Link from 'next/link'
 import { Button, buttonVariants } from '../../ui/button'
 import Navbar from '../../shared/navbar'
 
-const navigation = [
-  { name: 'Product', href: '#' },
-  { name: 'Features', href: '#' },
-  { name: 'Marketplace', href: '#' },
-  { name: 'Company', href: '#' },
-]
 
 export default function Example() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   return (
     <div className="bg-white">
