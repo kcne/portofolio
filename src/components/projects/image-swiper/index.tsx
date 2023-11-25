@@ -27,7 +27,6 @@ function ImageSwiper({images}: Props) {
     <Swiper
     navigation={true}
     modules={[Navigation]}
-    onSwiper={(swiper) => console.log(swiper)}
   >
     {
         images.map((image,idx)=>

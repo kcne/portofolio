@@ -1,6 +1,8 @@
 import Link from 'next/link'
 import React from 'react'
 import { GithubOriginal, LinkedinOriginal } from 'devicons-react';
+import { buttonVariants } from '@/components/ui/button';
+import { cn } from '@/lib/utils';
 
 interface Props {}
 
@@ -23,18 +25,18 @@ function Footer({}: Props) {
         </div>
     </div>
 
-    <ul className="flex flex-wrap items-center mt-3 text-sm font-medium text-zinc-500 sm:mt-0">
+    <ul className="flex flex-wrap items-center mt-3 text-sm text-zinc-600 sm:mt-0">
         <li>
-            <a href="#" className="hover:underline me-4 md:me-6">About</a>
+        <Link href="/blog" className={cn(buttonVariants({variant:'ghost'})," md:me-6 text-zinc-600 hover:text-zinc-700 hover:bg-zinc-300/50")}>Blog</Link>
         </li>
         <li>
-            <a href="#" className="hover:underline me-4 md:me-6">Privacy Policy</a>
+        <Link href="/projects" className={cn(buttonVariants({variant:'ghost'})," md:me-6 text-zinc-600 hover:text-zinc-700 hover:bg-zinc-300/50")}>Projects</Link>
         </li>
         <li>
-            <a href="#" className="hover:underline me-4 md:me-6">Licensing</a>
+        <Link href="/stack" className={cn(buttonVariants({variant:'ghost'})," md:me-6 text-zinc-600 hover:text-zinc-700 hover:bg-zinc-300/50")}>Technology</Link>
         </li>
         <li>
-            <a href="#" className="hover:underline">Contact</a>
+        <Link href="/contact" className={cn(buttonVariants({variant:'ghost'})," md:me-6 text-zinc-600 hover:text-zinc-700 hover:bg-zinc-300/50")}>Contact</Link>
         </li>
     </ul>
     </div>

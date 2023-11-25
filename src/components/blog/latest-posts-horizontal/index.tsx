@@ -22,7 +22,6 @@ function LatestPostsHorizontal({slug}: Props) {
 
  // @ts-ignore 
 const { data: posts } = useSWR<Post[]>([getOtherPosts, { slug }], customFetcher);
-    console.log(posts);
   return (
     <>
     <h2 className='text-zinc-800 leading-snug text-4xl text-center underline mb-5 font-semibold mt-10'>Latest Posts</h2>

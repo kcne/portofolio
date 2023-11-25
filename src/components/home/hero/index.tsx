@@ -1,18 +1,16 @@
 'use client'
 import { useState } from 'react'
 import { Dialog } from '@headlessui/react'
-import { X,Menu,ArrowRight } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 import Image from 'next/image'
 import { Badge, badgeVariants } from '../../ui/badge'
 import { cn } from '@/lib/utils'
 
 // tech stack
-import { NextjsOriginalWordmark, ReactOriginal, TypescriptOriginal, LinkedinOriginal, GithubOriginal, GraphqlPlain, TailwindcssPlain, GitOriginal, FigmaOriginal, JiraOriginalWordmark,MarkdownOriginal, MysqlOriginalWordmark, NodejsOriginal, PostgresqlPlainWordmark, VscodeOriginal, PythonOriginalWordmark } from 'devicons-react';
+import { LinkedinOriginal, GithubOriginal} from 'devicons-react';
 import Link from 'next/link'
 import { Button, buttonVariants } from '../../ui/button'
-import BlogPosts from '../../shared/latest-posts'
 import Navbar from '../../shared/navbar'
-import Footer from '@/components/shared/footer'
 
 const navigation = [
   { name: 'Product', href: '#' },
@@ -58,22 +56,10 @@ export default function Example() {
                     </div>
                     <p className='text-6xl leading-tight tracking-tighter'>Emin Kocan</p>
                     <p className='text-zinc-600 mt-5'>As a Frontend Engineer at PITON Technology, I design and develop robust, user-friendly web applications for various clients and domains, using cutting-edge technologies such as Nextjs, Material-UI, Sanity, GraphQL, and Tailwind CSS. I work with a diverse and talented team of engineers, designers, and project managers, contributing to the delivery of high-quality products and services that meet the needs and expectations of our customers and stakeholders.</p>
-                    <div className='mt-10 flex justify-center gap-6 item-center flex-wrap'>
-                    <NextjsOriginalWordmark size={45}/>
-                    <ReactOriginal size={45} />
-                    <GraphqlPlain size={45} />
-                    <TypescriptOriginal size={45} />
-                    <TailwindcssPlain size={45} />
-                    <GitOriginal size={45} />
-                    <MarkdownOriginal size={45} />
-                    <NodejsOriginal size={45} />
-                    <PostgresqlPlainWordmark size={45}/>
-                    <VscodeOriginal size={45} />
 
-                    </div>
                     <div className='flex justify-center md:justify-start gap-3 mt-10'>
-                    <Button className={cn(buttonVariants({variant:'default'}),'flex justify-center items-center')}>See Projects <ArrowRight className='ml-1' size={15}/></Button>
-                    <Button className={cn(buttonVariants({variant:'secondary'}),'flex justify-center items-center')}>Download CV </Button>
+                    <Link href='/projects' className={cn(buttonVariants({variant:'default'}),'flex justify-center items-center')}>See Projects <ArrowRight className='ml-1' size={15}/></Link>
+                    <Link href="https://cdn.sanity.io/files/6k7pyniy/production/c72378fdf969fdd0c6842f654ec94316bfaed14c.pdf" target='_blank' className={cn(buttonVariants({variant:'secondary'}),'flex justify-center items-center')}>Download CV </Link>
                     </div>
                 </div>
                 <div className='md:order-2 order-1 pb-10 md:pb-0 flex justify-center sm:justify-start md:justify-end'>
@@ -105,7 +91,6 @@ export default function Example() {
                 </li>
             </ol>
         </div>
-        <BlogPosts/>
         <div
           className="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]"
           aria-hidden="true"

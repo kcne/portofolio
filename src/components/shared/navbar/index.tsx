@@ -4,6 +4,8 @@ import { Dialog } from '@headlessui/react';
 import { Menu, X } from 'lucide-react';
 import Link from 'next/link'
 import { cn } from '@/lib/utils';
+import { GithubOriginal, LinkedinOriginal } from 'devicons-react';
+import { buttonVariants } from '@/components/ui/button';
 
 interface Props extends React.HTMLAttributes<HTMLDivElement> {
 
@@ -13,7 +15,7 @@ interface Props extends React.HTMLAttributes<HTMLDivElement> {
 const navigation = [
     { name: 'Blog', href: '/blog' },
     { name: 'Projects', href: '/projects' },
-    { name: 'Stack', href: '/stack' },
+    { name: 'Technologies', href: '/stack' },
     { name: 'Contact', href: '#' },
   ]
 
@@ -39,17 +41,20 @@ function Navbar({className}: Props) {
                 <Menu className="h-6 w-6" aria-hidden="true" />
               </button>
             </div>
-            <div className="hidden lg:flex lg:gap-x-12">
+            <div className="hidden lg:flex lg:gap-x-3">
               {navigation.map((item) => (
-                <Link key={item.name} href={item.href} className="text-[15px] leading-6 text-zinc-900">
+                <Link key={item.name} href={item.href}  className={cn(buttonVariants({variant:'ghost'})," text-[15px] leading-6 text-zinc-900 hover:text-zinc-700 hover:bg-zinc-300/50 ")}>
                   {item.name}
                 </Link>
               ))}
             </div>
-            <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-              <a href="#" className="text-sm font-semibold leading-6 text-zinc-900">
-                Log in <span aria-hidden="true">&rarr;</span>
-              </a>
+            <div className="hidden lg:flex lg:flex-1 lg:justify-end gap-2">
+            <Link target="_blank" href='https://github.com/kcne'>
+                <GithubOriginal size={25}/>
+            </Link>
+            <Link target="_blank" href='https://www.linkedin.com/in/kcne/'>
+                <LinkedinOriginal size={25}/>
+            </Link>
             </div>
           </nav>
           <Dialog as="div" className="lg:hidden" open={mobileMenuOpen} onClose={setMobileMenuOpen}>
@@ -73,22 +78,14 @@ function Navbar({className}: Props) {
                 <div className="-my-6 divide-y divide-gray-500/10">
                   <div className="space-y-2 py-6">
                     {navigation.map((item) => (
-                      <a
+                      <Link
                         key={item.name}
                         href={item.href}
                         className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-zinc-900 hover:bg-gray-50"
                       >
                         {item.name}
-                      </a>
+                      </Link>
                     ))}
-                  </div>
-                  <div className="py-6">
-                    <a
-                      href="#"
-                      className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-zinc-900 hover:bg-gray-50"
-                    >
-                      Log in
-                    </a>
                   </div>
                 </div>
               </div>

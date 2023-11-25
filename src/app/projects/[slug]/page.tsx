@@ -25,18 +25,17 @@ async function Projects({params}: Props) {
     const {slug} = params;
     const project:Project = await fetcher(getProject, {slug})
     const otherProjects:Project[] = await fetcher(getOtherProjects,{slug})
-    project && console.log(project.stack);
 
   return (
     <div className='w-full min-h-page  bg-gradient-to-r from-rose-100 to-teal-100'>
         <Navbar/>
         <div className='w-full h-full pt-20 min-h-screen pb-5'>
             <div className='max-w-6xl mx-auto bg-white/50 text-zinc-800 shadow-xl rounded-xl  mt-10  p-5 gap-5'>
-                <Badge variant='secondary'>{project.company}</Badge>
-                <h2 className='font-semibold text-zinc-800 text-4xl my-2'>{project.title}</h2>
-                {project.stack && <ProjectStack stack={project.stack}/>}
-                <p className='mt-5 mb-5 text-lg text-zinc-600'>{project.description}</p>
-                <ImageSwiper images={project.gallery}/>
+                <Badge variant='secondary'>{project?.company}</Badge>
+                <h2 className='font-semibold text-zinc-800 text-4xl my-2'>{project?.title}</h2>
+                {project.stack && <ProjectStack stack={project?.stack}/>}
+                <p className='mt-5 mb-5 text-lg text-zinc-600'>{project?.description}</p>
+                { project.gallery && <ImageSwiper images={project?.gallery}/>}
 
                 {/* <Image
                     className="object-center object-contain mt-5 rounded-xl"
@@ -48,7 +47,7 @@ async function Projects({params}: Props) {
                 /> */}
                 
                 <div className='prose prose-lg md:prose-xl mt-10 zinc-800'>
-                    <PortableText value={project.body} />
+                    <PortableText value={project?.body} />
                 </div>
             
             </div>

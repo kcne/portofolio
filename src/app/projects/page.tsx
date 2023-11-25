@@ -14,7 +14,7 @@ interface Props {}
 const builder = imageUrlBuilder(client);
 
 function Projects({}: Props) {
-    const { data:projects, isLoading } = useSWR<Project[]>(getProjects,fetcher);
+    const { data:projects } = useSWR<Project[]>(getProjects,fetcher);
   return (
     <div className='w-full min-h-page  bg-gradient-to-r from-rose-100 to-teal-100 pb-5'>
         <Navbar/>
