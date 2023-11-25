@@ -12,8 +12,11 @@ import { Urbanist } from 'next/font/google';
 import Footer from '@/components/shared/footer';
 
 
+
 interface Props {
-    params:any;
+    params:{
+        slug:string
+    };
 }
 
 const urbanist = Urbanist({subsets:['latin']})

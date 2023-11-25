@@ -14,7 +14,7 @@ function Blog({}: Props) {
     const {data:lastPost} = useSWR(latestPostQuery,fetcher)
 
   return (
-    <main className='w-full min-h-screen bg-zinc-100'>
+    <main className='w-full min-h-screen bg-zinc-100 pb-5'>
     <Navbar className='bg-zinc-100/60'/>
     <LastPost post={lastPost}/>
     <LatestPosts />

@@ -50,3 +50,54 @@ export const getAllTechnologies = groq `*[_type == "technology"][]{
     description,
     image
 }`
+
+export const getProjects = groq `*[_type == "project"] | order(order asc)[]{
+    _id,
+    title,
+    company,
+    slug,
+    description,
+    image,
+    gif,
+    publishedAt,
+    url
+}`
+
+export const getOtherProjects = groq `*[_type=="project" && slug.current!=$slug] | order(order asc)[0...3]{
+    _id,
+    title,
+    company,
+    slug,
+    description,
+    image,
+    gif,
+    publishedAt,
+    url
+}`
+
+export const getProject = groq`*[_type == "project" && slug.current == $slug][0]{
+    _id,
+    title,
+    company,
+    slug,
+    description,
+    image,
+    gif,
+    publishedAt,
+    url,
+    body,
+    "stack": stack[]->{
+        _id,
+        title,
+        description,
+        image
+    },
+    "gallery": gallery[]{
+        _key,
+        asset->{
+            _id,
+            url
+        },
+        alt
+    }
+}`;
