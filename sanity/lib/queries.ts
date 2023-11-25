@@ -38,6 +38,21 @@ export const postQuery = groq`*[_type == "post" && slug.current == $slug][0]{
     publishedAt
 }`;
 
+
+export const getOtherPosts = groq`*[_type == "post" && slug.current != $slug][0...3]{
+    _id,
+    title,
+    slug,
+    mainImage,
+    description,
+    author->{
+        _id,
+        name,
+        "image_url": image.asset->url
+    },
+    publishedAt
+}`
+
 // Get all post slugs
 export const postPathsQuery = groq`*[_type == "post" && defined(slug.current)][]{
     "params": { "slug": slug.current }

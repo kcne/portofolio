@@ -1,28 +1,34 @@
 'use client'
 import React from 'react'
 import useSWR from 'swr';
-import { client, fetcher } from '../../../../sanity/lib/client';
-import { postsQuery } from '../../../../sanity/lib/queries';
+import { client, customFetcher, fetcher } from '../../../../sanity/lib/client';
+import { getOtherPosts, postsQuery } from '../../../../sanity/lib/queries';
 import { Post } from '../../../../sanity/lib/types/post';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '../../ui/card';
 import imageUrlBuilder from "@sanity/image-url";
 import Image from 'next/image'
-import { Button, buttonVariants } from '../../ui/button';
+import {  buttonVariants } from '../../ui/button';
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
 
 const builder = imageUrlBuilder(client);
 
-interface Props {}
+interface Props {
+  slug:string,
+}
 
-function LatestPostsHorizontal({}: Props) {
-    const { data:posts, error } = useSWR<Post[]>(postsQuery,fetcher);
+
+function LatestPostsHorizontal({slug}: Props) {
+
+ // @ts-ignore 
+const { data: posts } = useSWR<Post[]>([getOtherPosts, { slug }], customFetcher);
+    console.log(posts);
   return (
     <>
     <h2 className='text-zinc-800 leading-snug text-4xl text-center underline mb-5 font-semibold mt-10'>Latest Posts</h2>
     <div className='mt-10 flex flex-col max-w-4xl gap-5 justify-center mx-5 lg:mx-auto'>
         {
-           posts?.map( post => 
+           posts && posts?.map( post => 
             (
                 <Card key={post._id} className=' backdrop-blur-md bg-zinc-50 h-[400px] sm:h-[200px] md:h-[150px]'>
                     <CardContent className="grid grid-rows-2 gap-y-5 grid-cols-1 sm:grid-rows-1 sm:grid-cols-[1fr_1fr] md:grid-cols-[1fr_3fr]  h-full p-5">

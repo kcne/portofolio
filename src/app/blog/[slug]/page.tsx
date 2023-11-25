@@ -6,7 +6,6 @@ import imageUrlBuilder from '@sanity/image-url';
 import Image from 'next/image'
 import { PortableText } from "@portabletext/react";
 import { Post } from '../../../../sanity/lib/types/post';
-import LatestPosts from '@/components/shared/latest-posts';
 import LatestPostsHorizontal from '@/components/blog/latest-posts-horizontal';
 import { Urbanist } from 'next/font/google';
 import Footer from '@/components/shared/footer';
@@ -28,7 +27,7 @@ async function BlogPosts({params}: Props) {
 
 
     const builder = imageUrlBuilder(client);
-    const formatedDate = new Date(post.publishedAt).toLocaleDateString();
+    const formatedDate = post? new Date(post.publishedAt).toLocaleDateString() : new Date().toLocaleDateString();
 
 
     
@@ -40,7 +39,7 @@ async function BlogPosts({params}: Props) {
            
             <div className="bg-zinc-600/50 p-10 border-zinc-300 text-zinc-50 bg-blend-lighten border  backdrop-blur-sm  max-w-6xl rounded-md z-10 mx-1.5">
                 <h1 className='text-4xl sm:text-5xl md:text-5xl font-semibold '>
-                    {post.title}
+                    {post && post.title}
                 </h1>
                 <p className='text-sm md:text-lg ml-1.5 mt-3'>
                     {
@@ -63,7 +62,7 @@ async function BlogPosts({params}: Props) {
             </article>
 
             <div className='bg-zinc-50/50 backdrop-blur-sm relative pb-10 max-w-6xl rounded-md border border-zinc-400 mx-auto'>
-                <LatestPostsHorizontal/>
+                <LatestPostsHorizontal slug={slug}  />
             </div>
             
             </div>
