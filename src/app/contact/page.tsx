@@ -9,16 +9,8 @@ import { Form, FormField, FormItem, FormLabel, FormControl, FormDescription, For
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Textarea } from '@/components/ui/textarea';
-import { sendEmail } from './action';
+import { formSchema, sendEmail } from './action';
  
-export const formSchema = z.object({
-  name: z.string().min(2,'This field is required.').max(50),
-  email:z.string().email('Please enter valid email address.'),
-  subject: z.string().min(2,'This field is required.').max(50),
-  message:z.string().min(10,'This field is required.').max(200),
-})
-
-
 
 interface Props {}
 

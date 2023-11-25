@@ -1,6 +1,13 @@
 "use server";
 import { z } from "zod";
-import { formSchema } from "./page";
+
+export const formSchema = z.object({
+    name: z.string().min(2,'This field is required.').max(50),
+    email:z.string().email('Please enter valid email address.'),
+    subject: z.string().min(2,'This field is required.').max(50),
+    message:z.string().min(10,'This field is required.').max(200),
+  })
+  
 
 export async function sendEmail(values: z.infer<typeof formSchema>) {
     // Do something with the form values.
