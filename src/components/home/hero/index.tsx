@@ -52,7 +52,14 @@ export default function Example() {
                     </div>
                 </div>
                 <div className='md:order-2 order-1 pb-10 md:pb-0 flex justify-center sm:justify-start md:justify-end'>
-                    <img src='/hero-image.webp' alt="image" className='rounded-xl w-full sm:w-auto' width={300} height={600}/>
+                    <img src='/hero-image.webp?q=70' alt="image" className='rounded-xl w-full sm:w-auto'
+                      srcSet={
+                        `/hero-image.webp?q=70 1200w, 
+                        /hero-image.webp?w=200?q=70 200w,
+                        /hero-image.webp?w=400?q=70 400w, 
+                        /hero-image.webp?w=800?q=70 800w, 
+                        /hero-image.webp?w=1024?q=70 1024w`}
+                    />
                 </div>
             </div>
         </div>

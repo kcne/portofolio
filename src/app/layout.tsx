@@ -26,6 +26,12 @@ export default function RootLayout({
         rel="preload"
         href='/hero-image.webp'
         as="image"
+        imageSrcSet={
+          `/hero-image.webp 1200w, 
+          /hero-image.webp?w=200 200w,
+          /hero-image.webp?w=400 400w, 
+          /hero-image.webp?w=800 800w, 
+          /hero-image.webp?w=1024 1024w`}
       />
       </Head>
       <body 
