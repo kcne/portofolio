@@ -23,8 +23,6 @@ async function BlogPosts({params}: Props) {
     const {slug} = params;
 
     const post:Post = await fetcher(postQuery, {slug})
-
-
     const builder = imageUrlBuilder(client);
     const formatedDate = post? new Date(post.publishedAt).toLocaleDateString() : new Date().toLocaleDateString();
 

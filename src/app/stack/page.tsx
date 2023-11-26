@@ -23,9 +23,6 @@ function Stack({}: Props) {
                     technologies && 
                     <div className='max-w-6xl border border-zinc-200 rounded-xl m-auto backdrop-blur-md bg-white/50 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 grid-rows-auto gap-5 p-5'>
                         {
-
-                            //grid-col-lay
-                            //links
                             technologies.map( t => 
                                 (
                                     <Card key={t._id} className=' backdrop-blur-md bg-zinc-50 h-auto md:h-[150px]'>

@@ -1,3 +1,5 @@
+import Footer from '@/components/shared/footer'
+import Navbar from '@/components/shared/navbar'
 import { Metadata } from 'next'
 import React from 'react'
 
@@ -7,7 +9,15 @@ export const metadata: Metadata = {
 }
 
 function ProjectsLayout({children}: {children: React.ReactNode}){
-  return children
+  return (
+    <div className='w-full min-h-page  bg-gradient-to-r from-rose-100 to-teal-100 pb-5'>
+      <Navbar/>
+    {children}
+     <Footer/>
+    </div>
+  )
+  
+  
 }
 
 export default ProjectsLayout

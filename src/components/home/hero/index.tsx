@@ -1,12 +1,9 @@
-'use client'
-import { useState } from 'react'
-import { Dialog } from '@headlessui/react'
-import { ArrowRight } from 'lucide-react'
+import { ArrowRight, Github, Linkedin } from 'lucide-react'
 import { Badge, badgeVariants } from '../../ui/badge'
 import { cn } from '@/lib/utils'
 
 // tech stack
-import { LinkedinOriginal, GithubOriginal} from 'devicons-react';
+
 import Link from 'next/link'
 import { buttonVariants } from '../../ui/button'
 import Navbar from '../../shared/navbar'
@@ -35,15 +32,14 @@ export default function Example() {
         <div className="mx-auto max-w-5xl pt-10 md:pt-32 pb-16">
             <div className='w-full grid grid-cols-1 grid-rows-2 md:grid-cols-[2fr_1fr] md:grid-rows-1 gap-x-5'>
                 <div className='md:order-1 order-2'>
-                    {/* <h1 className='text-4xl font-semibold leading-tight tracking-tighter'>Frontend Developer</h1> */}
                     <div className='flex justify-start items-center gap-4'>
                     <Badge className={cn(badgeVariants({variant:'default'}))}>Web Developer</Badge>
                         <div className='flex justify-start gap-2'>
                             <Link target="_blank" href='https://github.com/kcne'>
-                                <GithubOriginal size={25}/>
+                                <Github size={25}/>
                             </Link>
                             <Link target="_blank" href='https://www.linkedin.com/in/kcne/'>
-                                <LinkedinOriginal size={25}/>
+                                <Linkedin size={25}/>
                             </Link>
                         </div>
                     </div>

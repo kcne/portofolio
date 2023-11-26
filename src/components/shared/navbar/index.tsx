@@ -1,10 +1,9 @@
 'use client'
 import React, { useState } from 'react'
 import { Dialog } from '@headlessui/react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Linkedin, Github } from 'lucide-react';
 import Link from 'next/link'
 import { cn } from '@/lib/utils';
-import { GithubOriginal, LinkedinOriginal } from 'devicons-react';
 import { buttonVariants } from '@/components/ui/button';
 
 interface Props extends React.HTMLAttributes<HTMLDivElement> {
@@ -50,10 +49,10 @@ function Navbar({className}: Props) {
             </div>
             <div className="hidden lg:flex lg:flex-1 lg:justify-end gap-2">
             <Link target="_blank" href='https://github.com/kcne'>
-                <GithubOriginal size={25}/>
+                <Github size={25}/>
             </Link>
             <Link target="_blank" href='https://www.linkedin.com/in/kcne/'>
-                <LinkedinOriginal size={25}/>
+                <Linkedin size={25}/>
             </Link>
             </div>
           </nav>

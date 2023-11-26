@@ -1,20 +1,21 @@
 // ./nextjs-app/app/_components/Posts.tsx
-
+'use client'
 import Link from "next/link";
-import type { SanityDocument } from "@sanity/client";
 import Image from 'next/image'
 import imageUrlBuilder from '@sanity/image-url';
-import { client } from "../../../../sanity/lib/client";
+import { client, fetcher } from "../../../../sanity/lib/client";
 import { Urbanist } from "next/font/google";
-import { Badge, badgeVariants } from "@/components/ui/badge";
+import { Badge} from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "@/components/ui/button";
+import useSWR from "swr";
+import { latestPostQuery } from "../../../../sanity/lib/queries";
 
 const builder = imageUrlBuilder(client);
 const urbanist = Urbanist({subsets:['latin']})
 
-export default function LastPost({ post }: { post?: SanityDocument }) {
-
+export default function LastPost() {
+  const {data:post} = useSWR(latestPostQuery,fetcher)
   return ( post?
     (
     <div className="w-full h-fit mt-20">

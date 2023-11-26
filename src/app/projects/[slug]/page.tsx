@@ -1,8 +1,7 @@
 import Navbar from '@/components/shared/navbar'
 import React from 'react'
-import imageUrlBuilder from '@sanity/image-url';
 import { getOtherProjects, getProject } from '../../../../sanity/lib/queries'
-import { client, fetcher } from '../../../../sanity/lib/client';
+import {  fetcher } from '../../../../sanity/lib/client';
 import { Project } from '../../../../sanity/lib/types/project';
 import { PortableText } from "@portabletext/react";
 import { Badge } from '@/components/ui/badge';
@@ -19,7 +18,6 @@ interface Props {
     };
 }
 
-const builder = imageUrlBuilder(client);
 
 async function Projects({params}: Props) {
     const {slug} = params;
@@ -36,15 +34,6 @@ async function Projects({params}: Props) {
                 {project.stack && <ProjectStack stack={project?.stack}/>}
                 <p className='mt-5 mb-5 text-lg text-zinc-600'>{project?.description}</p>
                 { project.gallery && <ImageSwiper images={project?.gallery}/>}
-
-                {/* <Image
-                    className="object-center object-contain mt-5 rounded-xl"
-                    src={builder.image(project.image).width(1366).height(768).url()}
-                    alt={project?.image?.alt}
-                    width={1366}
-                    height={768}
-
-                /> */}
                 
                 <div className='prose prose-lg md:prose-xl mt-10 zinc-800'>
                     <PortableText value={project?.body} />

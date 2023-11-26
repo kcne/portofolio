@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import React from 'react'
-import { GithubOriginal, LinkedinOriginal } from 'devicons-react';
+import { Linkedin, Github } from 'lucide-react';
 import { buttonVariants } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 
@@ -17,10 +17,10 @@ function Footer({}: Props) {
     </Link>
         <div className='flex justify-start gap-1.5'>
             <Link target="_blank" href='https://github.com/kcne'>
-                <GithubOriginal size={20}/>
+                <Github size={20}/>
             </Link>
             <Link target="_blank" href='https://www.linkedin.com/in/kcne/'>
-                <LinkedinOriginal size={20}/>
+                <Linkedin size={20}/>
             </Link> 
         </div>
     </div>
