@@ -48,7 +48,7 @@ export default function Example() {
 
                     <div className='flex justify-center md:justify-start gap-3 mt-10'>
                     <Link href='/projects' className={cn(buttonVariants({variant:'default'}),'flex justify-center items-center')}>See Projects <ArrowRight className='ml-1' size={15}/></Link>
-                    <Link href="https://cdn.sanity.io/files/6k7pyniy/production/c72378fdf969fdd0c6842f654ec94316bfaed14c.pdf" target='_blank' className={cn(buttonVariants({variant:'secondary'}),'flex justify-center items-center')}>Download CV </Link>
+                    <Link href="https://cdn.sanity.io/files/6k7pyniy/production/744a29cb881af150f4ba846229cab5052e3f8e05.pdf" target='_blank' className={cn(buttonVariants({variant:'secondary'}),'flex justify-center items-center')}>Download CV </Link>
                     </div>
                 </div>
                 <div className='md:order-2 order-1 pb-10 md:pb-0 flex justify-center sm:justify-start md:justify-end'>
