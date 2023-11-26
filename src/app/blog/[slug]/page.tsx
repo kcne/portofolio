@@ -11,7 +11,6 @@ import { Urbanist } from 'next/font/google';
 import Footer from '@/components/shared/footer';
 
 
-
 interface Props {
     params:{
         slug:string
