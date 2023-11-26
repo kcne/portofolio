@@ -30,8 +30,8 @@ export default function RootLayout({
           `/hero-image.webp?q=70 400, 
           /hero-image.webp?w=200?q=70 200w,
           /hero-image.webp?w=400?q=70 400w, 
-          /hero-image.webp?w=800?q=70 400, 
-          /hero-image.webp?w=1024?q=70 400`}
+          /hero-image.webp?w=800?q=70 400w, 
+          /hero-image.webp?w=1024?q=70 400w`}
       />
       </Head>
       <body 
