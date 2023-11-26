@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import "./globals.css"
 import { Inter as FontSans } from "next/font/google"
 import { cn } from '@/lib/utils'
+import Head from 'next/head'
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -20,6 +21,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <Head> 
+      <link
+        rel="preload"
+        href='/hero-image.webp'
+        as="image"
+      />
+      </Head>
       <body 
         className={cn(
           "min-h-screen bg-background font-sans antialiased light",

@@ -2,15 +2,15 @@
 import { useState } from 'react'
 import { Dialog } from '@headlessui/react'
 import { ArrowRight } from 'lucide-react'
-import Image from 'next/image'
 import { Badge, badgeVariants } from '../../ui/badge'
 import { cn } from '@/lib/utils'
 
 // tech stack
 import { LinkedinOriginal, GithubOriginal} from 'devicons-react';
 import Link from 'next/link'
-import { Button, buttonVariants } from '../../ui/button'
+import { buttonVariants } from '../../ui/button'
 import Navbar from '../../shared/navbar'
+
 
 
 export default function Example() {
@@ -56,7 +56,7 @@ export default function Example() {
                     </div>
                 </div>
                 <div className='md:order-2 order-1 pb-10 md:pb-0 flex justify-center sm:justify-start md:justify-end'>
-                    <Image src='/hero-image.jpg' alt="image" className='rounded-xl w-full sm:w-auto' width={300} height={600}/>
+                    <img src='/hero-image.webp' alt="image" className='rounded-xl w-full sm:w-auto' width={300} height={600}/>
                 </div>
             </div>
         </div>
