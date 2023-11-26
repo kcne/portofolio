@@ -27,11 +27,11 @@ export default function RootLayout({
         href='/hero-image.webp'
         as="image"
         imageSrcSet={
-          `/hero-image.webp 1200w, 
-          /hero-image.webp?w=200 200w,
-          /hero-image.webp?w=400 400w, 
-          /hero-image.webp?w=800 800w, 
-          /hero-image.webp?w=1024 1024w`}
+          `/hero-image.webp?q=70 400, 
+          /hero-image.webp?w=200?q=70 200w,
+          /hero-image.webp?w=400?q=70 400w, 
+          /hero-image.webp?w=800?q=70 400, 
+          /hero-image.webp?w=1024?q=70 400`}
       />
       </Head>
       <body 
