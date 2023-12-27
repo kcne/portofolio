@@ -3,14 +3,23 @@ import Hero from "@/components/home/hero";
 import Footer from "@/components/shared/footer";
 import useSWR from "swr";
 import { UserInfo } from "../../sanity/lib/types/userInfo";
-import { getExperienceInformation, getUserInfo } from "../../sanity/lib/queries";
+import {
+  getExperienceInformation,
+  getUserInfo,
+} from "../../sanity/lib/queries";
 import { fetcher } from "../../sanity/lib/client";
 import { Experience } from "../../sanity/lib/types/experience";
 import ExperienceTimeline from "@/components/home/experience-timeline";
+import { Toaster } from "@/components/ui/toaster";
 
 export default function Home() {
-  const { data: userInfo, isLoading:userInfoLoading } = useSWR<UserInfo>(getUserInfo, fetcher);
-  const {data: experience, isLoading:experienceLoading} = useSWR<Experience[]>(getExperienceInformation,fetcher);
+  const { data: userInfo, isLoading: userInfoLoading } = useSWR<UserInfo>(
+    getUserInfo,
+    fetcher
+  );
+  const { data: experience, isLoading: experienceLoading } = useSWR<
+    Experience[]
+  >(getExperienceInformation, fetcher);
 
   if (userInfoLoading || experienceLoading) {
     return (
@@ -43,7 +52,7 @@ export default function Home() {
     return (
       <main className="min-h-screen ">
         <Hero userInfo={userInfo} />
-        <ExperienceTimeline experience={experience}/>
+        <ExperienceTimeline experience={experience} />
         <Footer />
       </main>
     );
