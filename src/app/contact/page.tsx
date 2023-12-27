@@ -22,7 +22,7 @@ import { useToast } from "@/components/ui/use-toast";
 
 interface Props {}
 
-export const formSchema = z.object({
+const formSchema = z.object({
   name: z.string().min(2, "This field is required.").max(50),
   email: z.string().email("Please enter valid email address."),
   subject: z.string().min(2, "This field is required.").max(50),
