@@ -11,9 +11,9 @@ const fontSans = FontSans({
 });
 
 export const metadata: Metadata = {
-  title: "kcne | Home",
+  title: "Portfolio | Home",
   description:
-    "Hello and welcome! I'm Emin Kocan, a Frontend Engineer at PITON Technology, and this is my digital space. Here, you'll get a glimpse into my world of web development where creativity meets technology. From detailed blogs that share my experiences and insights to a gallery of my projects showcasing my skills with Next.js, Material-UI, and more, there's plenty to explore. Whether you're a fellow tech enthusiast, a potential collaborator, or just curious, I invite you to browse through my work, learn about the technologies I use, and maybe find some inspiration. Don't hesitate to reach out if you'd like to connect or discuss how we can work together. Happy browsing!",
+    "Hi, I'm a Frontend Engineer with 2+ years of experience with a strong drive and dedication to building fast, reliable, and modern web applications with Next.js & Typescript. With a history of contributions to projects in both corporate and freelance capacities, I have developed strong collaboration and communication skills, along with an innovative and adaptable approach that allows me to perform well under pressure. I'm also always looking for new ways to learn and improve further following events and innovations in open-source space.",
 };
 
 export default function RootLayout({

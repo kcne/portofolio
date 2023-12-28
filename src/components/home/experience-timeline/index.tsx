@@ -30,40 +30,6 @@ function ExperienceTimeline({ experience }: Props) {
             </p>
           </li>
         ))}
-
-        {/* <li className="mb-10 ms-4">
-          <div className="absolute w-3 h-3 bg-gradient-to-r from-gray-700 via-gray-900 to-black border-zinc-50 antialiased rounded-full mt-1.5 -start-1.5 border"></div>
-          <time className="mb-1 text-sm font-normal leading-none text-zinc-600">
-            April 2023
-          </time>
-          <h3 className="text-lg font-semibold text-zinc-900">
-            Frontend Engineering Intern at Piton Technology, Eskişehir
-          </h3>
-          <p className="text-base font-normal text-zinc-500">
-            During my internship, I advanced a Smart City Project by improving
-            modules using Next.js and TailwindCSS, boosting performance and user
-            experience. I implemented Chart.js and Leaflet for data
-            visualization and mapping, vital for urban monitoring. My work with
-            GraphQL and REST APIs led to a more dynamic UI, enhancing my skills
-            in developing urban tech integrations.
-          </p>
-        </li>
-        <li className="ms-4">
-          <div className="absolute w-3 h-3 bg-gradient-to-r from-gray-700 via-gray-900 to-black border-zinc-50 antialiased rounded-full mt-1.5 -start-1.5 border"></div>
-          <time className="mb-1 text-sm font-normal leading-none text-zinc-600">
-            April 2022
-          </time>
-          <h3 className="text-lg font-semibold text-zinc-900">
-            Co-founder/Web Developer at quuix. formerly BeeDigital, Remote
-          </h3>
-          <p className="text-base font-normal text-zinc-500">
-            As a freelancer, I&apos;ve delivered over 10 unique web projects
-            using Next.js and TailwindCSS, combining shadcn/ui&apos;s design
-            with Sanity CMS for captivating, functional sites. I&apos;ve driven
-            project success using Google and Vercel Analytics for informed
-            decision-making.
-          </p>
-        </li> */}
       </ol>
     </div>
   );

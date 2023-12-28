@@ -19,7 +19,7 @@ export async function sendEmail (values: z.infer<typeof formSchema>) {
     },
     body: JSON.stringify({
       from: `Portofolio Form <onboarding@resend.dev>`,
-      to: 'kocanmn.dev@gmail.com',
+      to: process.env.FORM_RECIPIENT,
       subject: `${values.subject} - ${values.email}`,
       text: values.message
     })

@@ -1,13 +1,14 @@
-import { Metadata } from 'next'
-import React from 'react'
+import { Metadata } from "next";
+import React from "react";
 
 export const metadata: Metadata = {
-  title: 'kcne | Blog',
-  description: "Discover my projects, learn from my experiences, and stay updated with industry insights that drive my professional journey. Ideal for peers, students, and enthusiasts seeking real-world perspectives in Web Development.",
+  title: "Portfolio | Blog",
+  description:
+    "Discover my projects, learn from my experiences, and stay updated with industry insights that drive my professional journey. Ideal for peers, students, and enthusiasts seeking real-world perspectives in Web Development.",
+};
+
+function BlogLayout({ children }: { children: React.ReactNode }) {
+  return children;
 }
 
-function BlogLayout({children}: {children: React.ReactNode}){
-  return children
-}
-
-export default BlogLayout
+export default BlogLayout;

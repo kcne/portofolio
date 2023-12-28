@@ -10,5 +10,14 @@ import userInfo from './schemas/userInfo'
 import experience from './schemas/experience'
 
 export const schema: { types: SchemaTypeDefinition[] } = {
-  types: [post, author, category, blockContent, technology, project, userInfo, experience],
+  types: [
+    post,
+    author,
+    category,
+    blockContent,
+    technology,
+    project,
+    userInfo,
+    experience,
+  ]
 }

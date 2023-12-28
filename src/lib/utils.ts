@@ -6,7 +6,7 @@ export function cn (...inputs: ClassValue[]) {
 }
 
 export function formatMMYY (date: string) {
-  const dateObj = new Date(date);
+  const dateObj = new Date(date)
   const monthNames = [
     'January',
     'February',

@@ -56,4 +56,3 @@ async function Projects({ params }: Props) {
 }
 
 export default Projects;
-

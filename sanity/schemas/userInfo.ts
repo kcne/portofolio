@@ -29,6 +29,16 @@ export default defineType({
       name: 'cv',
       title: 'CV',
       type: 'file'
+    }),
+    defineField({
+      name: 'githubUrl',
+      title: 'Github URL',
+      type: 'url'
+    }),
+    defineField({
+      name: 'linkedInUrl',
+      title: 'LinkedIn URL',
+      type: 'url'
     })
   ],
   preview: {

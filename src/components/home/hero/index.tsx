@@ -1,113 +1,77 @@
-"use client";
 import { ArrowRight, Github, Linkedin } from "lucide-react";
 import { Badge, badgeVariants } from "../../ui/badge";
 import { cn } from "@/lib/utils";
-
-// tech stack
-
 import Link from "next/link";
 import { buttonVariants } from "../../ui/button";
-import Navbar from "../../shared/navbar";
 import { UserInfo } from "../../../../sanity/lib/types/userInfo";
 
 interface Props {
   userInfo: UserInfo;
 }
 export default function Hero({ userInfo }: Props) {
+  console.log("userInfo", userInfo);
   return (
-    <div className="bg-white">
-      <Navbar />
-
-      <div className="relative isolate px-6 pt-14 lg:px-8">
-        <div
-          className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
-          aria-hidden="true"
-        >
-          <div
-            className="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-red-200 to-amber-500 opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
-            style={{
-              clipPath:
-                "polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)",
-            }}
-          />
-        </div>
-        <div className="mx-auto max-w-5xl pt-10 md:pt-32 pb-16">
-          <div className="w-full grid grid-cols-1 grid-rows-2 md:grid-cols-[2fr_1fr] md:grid-rows-1 gap-x-5">
-            <div className="md:order-1 order-2">
-              <div className="flex justify-start items-center gap-4">
-                <Badge className={cn(badgeVariants({ variant: "default" }))}>
-                  {userInfo && userInfo.title}
-                </Badge>
-                <div className="flex justify-start gap-2">
-                  <Link target="_blank" href="https://github.com/kcne">
-                    <Github size={25} />
-                  </Link>
-                  <Link
-                    target="_blank"
-                    href="https://www.linkedin.com/in/kcne/"
-                  >
-                    <Linkedin size={25} />
-                  </Link>
-                </div>
-              </div>
-              <p className="text-6xl leading-tight tracking-tighter">
-                {userInfo && `${userInfo?.name} ${userInfo?.surname}`}
-              </p>
-              <p className="text-zinc-600 mt-5">
-                {userInfo && userInfo.summary}
-              </p>
-
-              <div className="flex justify-center md:justify-start gap-3 mt-10">
-                <Link
-                  href="/projects"
-                  className={cn(
-                    buttonVariants({ variant: "default" }),
-                    "flex justify-center items-center"
-                  )}
-                >
-                  See Projects <ArrowRight className="ml-1" size={15} />
+    <div className="mx-auto max-w-5xl pt-10 md:pt-32 pb-16">
+      <div className="w-full grid grid-cols-1 grid-rows-2 md:grid-cols-[2fr_1fr] md:grid-rows-1 gap-x-5">
+        <div className="md:order-1 order-2">
+          <div className="flex justify-start items-center gap-4">
+            <Badge className={cn(badgeVariants({ variant: "default" }))}>
+              {userInfo && userInfo.title}
+            </Badge>
+            <div className="flex justify-start gap-2">
+              {userInfo.githubUrl && (
+                <Link target="_blank" href={userInfo.githubUrl}>
+                  <Github size={25} />
                 </Link>
-                <Link
-                  href={userInfo?.cv.url ?? "#"}
-                  target="_blank"
-                  className={cn(
-                    buttonVariants({ variant: "secondary" }),
-                    "flex justify-center items-center"
-                  )}
-                >
-                  Download CV{" "}
+              )}
+              {userInfo.linkedInUrl && (
+                <Link target="_blank" href={userInfo.linkedInUrl}>
+                  <Linkedin size={25} />
                 </Link>
-              </div>
+              )}
             </div>
-            <div className="md:order-2 order-1 pb-10 md:pb-0 flex justify-center sm:justify-start md:justify-end">
-              <img
-                src="/hero-image.webp?q=70"
-                alt="image"
-                loading="eager"
-                fetchPriority="high"
-                className="rounded-xl w-full sm:w-auto"
-                width="200"
-                height="400"
-                srcSet={`/hero-image.webp?q=70 400, 
+          </div>
+          <p className="text-6xl leading-tight tracking-tighter">
+            {userInfo && `${userInfo?.name} ${userInfo?.surname}`}
+          </p>
+          <p className="text-zinc-600 mt-5">{userInfo && userInfo.summary}</p>
+
+          <div className="flex justify-center md:justify-start gap-3 mt-10">
+            <Link
+              href="/projects"
+              className={cn(
+                buttonVariants({ variant: "default" }),
+                "flex justify-center items-center"
+              )}
+            >
+              See Projects <ArrowRight className="ml-1" size={15} />
+            </Link>
+            <Link
+              href={userInfo?.cv.url ?? "#"}
+              target="_blank"
+              className={cn(
+                buttonVariants({ variant: "secondary" }),
+                "flex justify-center items-center"
+              )}
+            >
+              Download CV{" "}
+            </Link>
+          </div>
+        </div>
+        <div className="md:order-2 order-1 pb-10 md:pb-0 flex justify-center sm:justify-start md:justify-end">
+          <img
+            src="/hero-image.webp?q=70"
+            alt="image"
+            loading="eager"
+            fetchPriority="high"
+            className="rounded-xl w-full sm:w-auto"
+            width="200"
+            height="400"
+            srcSet={`/hero-image.webp?q=70 400, 
                         /hero-image.webp?w=200?q=70 200w,
                         /hero-image.webp?w=400?q=70 400w, 
                         /hero-image.webp?w=800?q=70 400w, 
                         /hero-image.webp?w=1024?q=70 400w`}
-              />
-            </div>
-          </div>
-        </div>
-
-        <div
-          className="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]"
-          aria-hidden="true"
-        >
-          <div
-            className="relative left-[calc(50%+3rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 bg-gradient-to-tr from-red-200 to-amber-500  opacity-30 sm:left-[calc(50%+36rem)] sm:w-[72.1875rem]"
-            style={{
-              clipPath:
-                "polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)",
-            }}
           />
         </div>
       </div>

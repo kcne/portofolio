@@ -121,7 +121,9 @@ export const getUserInfo = groq`
   summary,
   cv{
     "url":asset -> url
-  }
+  },
+  githubUrl,
+  linkedInUrl
 }
 `
 

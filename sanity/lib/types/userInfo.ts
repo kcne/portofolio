@@ -7,4 +7,6 @@ export interface UserInfo {
   cv: {
     url: string
   }
+  githubUrl:string,
+  linkedInUrl:string,
 }
