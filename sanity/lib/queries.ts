@@ -1,11 +1,11 @@
 // ./nextjs-app/sanity/lib/queries.ts
 
-import { groq } from 'next-sanity'
+import { groq } from "next-sanity";
 
 // Get the latest post
 export const latestPostQuery = groq`*[_type == "post" && defined(slug.current)] | order(publishedAt desc)[0]{
 _id, title, slug, publishedAt,mainImage,category,body
-}`
+}`;
 
 // Get all posts
 export const postsQuery = groq`*[_type == "post" && defined(slug.current)]{
@@ -20,7 +20,7 @@ export const postsQuery = groq`*[_type == "post" && defined(slug.current)]{
         "image_url": image.asset->url
     },
     publishedAt
-}`
+}`;
 
 // Get a single post by its slug
 export const postQuery = groq`*[_type == "post" && slug.current == $slug][0]{
@@ -34,7 +34,7 @@ export const postQuery = groq`*[_type == "post" && slug.current == $slug][0]{
         "image_url": image.asset->url
     },
     publishedAt
-}`
+}`;
 
 export const getOtherPosts = groq`*[_type == "post" && slug.current != $slug][0...3]{
     _id,
@@ -48,19 +48,19 @@ export const getOtherPosts = groq`*[_type == "post" && slug.current != $slug][0.
         "image_url": image.asset->url
     },
     publishedAt
-}`
+}`;
 
 // Get all post slugs
 export const postPathsQuery = groq`*[_type == "post" && defined(slug.current)][]{
     "params": { "slug": slug.current }
-  }`
+  }`;
 
 export const getAllTechnologies = groq`*[_type == "technology"][]{
     _id,
     title,
     description,
     image
-}`
+}`;
 
 export const getProjects = groq`*[_type == "project"] | order(order asc)[]{
     _id,
@@ -72,7 +72,7 @@ export const getProjects = groq`*[_type == "project"] | order(order asc)[]{
     gif,
     publishedAt,
     url
-}`
+}`;
 
 export const getOtherProjects = groq`*[_type=="project" && slug.current!=$slug] | order(order asc)[0...3]{
     _id,
@@ -84,7 +84,7 @@ export const getOtherProjects = groq`*[_type=="project" && slug.current!=$slug] 
     gif,
     publishedAt,
     url
-}`
+}`;
 
 export const getProject = groq`*[_type == "project" && slug.current == $slug][0]{
     _id,
@@ -111,7 +111,7 @@ export const getProject = groq`*[_type == "project" && slug.current == $slug][0]
         },
         alt
     }
-}`
+}`;
 
 export const getUserInfo = groq`
 *[_type == 'userInfo'] [0] {
@@ -125,7 +125,7 @@ export const getUserInfo = groq`
   githubUrl,
   linkedInUrl
 }
-`
+`;
 
 export const getExperienceInformation = groq`
 *[_type == 'experience'] {
@@ -134,4 +134,5 @@ export const getExperienceInformation = groq`
   location,
   startDate,
   summary,
-}`
+} | order(startDate desc)
+`;
